@@ -1,48 +1,25 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-// import { Button } from './components/ui/button'
+// src/App.jsx
+import React from 'react';
+import LandingPage from './components/landingPage';
+import Navbar from './components/nav';
+import './App.css';
 
-// function App() {
-//   const [count, setCount] = useState(0)
 
-//   return (
-//     <>
-//      <button
-//       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-//     >
-//       hello
-//     </button>
-//       <Button>hello</Button>
-//     </>
-//   )
-// }
+// Example page components
+const Home = () => <h1>Home Page</h1>;
+const About = () => <h1>About Page</h1>;
+const Contact = () => <h1>Contact Page</h1>;
 
-// export default App
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from './components/ui/button'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
+
     <>
 
-    <div className=" bg-blue-500 flex flex-col items-center justify-center min-h-screen py-2">
-     <button
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    >
-      hello
-    </button>
-    
-      <Button>hello</Button>
-    </div>
+      {/* <LandingPage /> */}
+      {/* <Navbar></Navbar> */}
     </>
-  )
-}
 
-export default App
+  );
+};
+
+export default App;
