@@ -17,7 +17,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-gray-800 p-4">
+        <div className='flex justify-center bg-gray-800'> 
+        <nav className="bg-gray-800 p-4 max-w-screen-lg w-svw">
             <div className="container mx-auto">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
@@ -56,6 +57,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
+        </div>
     );
 };
 
@@ -91,6 +93,7 @@ const NavItemWithDropdown = ({ mobile }) => (
             </NavigationMenuList>
         </NavigationMenu>
     </li>
+    
 );
 
 export default Navbar;

@@ -3,20 +3,31 @@ import React from 'react';
 import LandingPage from './components/landingPage';
 import Navbar from './components/nav';
 import './App.css';
-
-
-// Example page components
-const Home = () => <h1>Home Page</h1>;
-const About = () => <h1>About Page</h1>;
-const Contact = () => <h1>Contact Page</h1>;
-
+import Hero from './components/hero';
+import FeaturedBlogs from './components/featured_blogs';
+import BlogSearchSection from './components/search';
+import Footer from './components/footer';
+import UserProfilePage from './components/user';
+import Register from './components/register';
+import Login from './components/login';
+import BlogPage from './components/blog';
+import CreateBlog from './components/createBlog';
 const App = () => {
   return (
 
     <>
 
       {/* <LandingPage /> */}
-      {/* <Navbar></Navbar> */}
+      <Navbar></Navbar>
+      {/* <Hero></Hero>
+      <FeaturedBlogs></FeaturedBlogs>
+      <BlogSearchSection></BlogSearchSection> */}
+      {/* <UserProfilePage></UserProfilePage> */}
+      {/* <Register></Register> */}
+      {/* <Login></Login> */}
+      {/* <BlogPage></BlogPage> */}
+      <CreateBlog></CreateBlog>
+      <Footer></Footer>
     </>
 
   );
