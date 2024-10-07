@@ -9,6 +9,8 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
+import { NavLink , Link } from 'react-router-dom';
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -23,7 +25,8 @@ const Navbar = () => {
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <div className="text-white text-xl font-bold">
-                        <a href="#">Blog<span className='text-blue-500'>Waves</span></a>
+                        {/* <a href="#">Blog<span className='text-blue-500'>Waves</span></a> */}
+                        <NavLink to='/'>Blog<span className='text-blue-500'>Waves</span></NavLink>
                     </div>
 
                     {/* Hamburger Icon (Visible on Small Screens) */}
@@ -37,11 +40,11 @@ const Navbar = () => {
 
                     {/* Navigation Links (Desktop) */}
                     <ul className="hidden md:flex space-x-7 text-white">
-                        <NavItem href="#home" text="Home" />
+                        <NavLink to='/' className={({isActive}) => `${isActive ? 'text-yellow-500' : ''}`}><NavItem text="Home" /></NavLink>
                         <NavItemWithDropdown />
                         <NavItem href="#about" text="Latest Blogs" />
                         <NavItem href="#services" text="Search" />
-                        <NavItem href="#contact" text="Login/Register" />
+                        <NavLink to='/login' className={({isActive}) => `${isActive ? 'text-yellow-500' : ''}`}><NavItem text="Login/register" /></NavLink>
                     </ul>
                 </div>
 

@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 
 const LandingPage = () => {
     return (
-        <div className="h-svh w-full flex justify-center overflow-hidden items-center">
+        <div className="h-svh w-full flex justify-center overflow-hidden items-center bg-gray-800">
             <h1 className="text-6xl font-bold text-white z-10 relative top-0 decoration-white">Welcome To BlogWave</h1>
             <div className="h-full w-full flex overflow-hidden justify-center items-center absolute flex-col">
           

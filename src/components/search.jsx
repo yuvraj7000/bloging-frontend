@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import mn from './img/mn.png';
+
+
 // Sample data - replace with actual data from your API or database
 const sampleBlogs = [
   { id: 1, title: "React Hooks Explained", category: "Programming", author: "Jane Doe" , image: mn },

@@ -31,7 +31,7 @@ const userData = {
   ]
 };
 
-const AdaptiveUserProfile = ({ isLoggedIn = true }) => {
+const UserProfile = ({ isLoggedIn = true }) => {
   const [activeTab, setActiveTab] = useState('created');
 
   const handleCreateBlog = () => {
@@ -144,4 +144,4 @@ const AdaptiveUserProfile = ({ isLoggedIn = true }) => {
   );
 };
 
-export default AdaptiveUserProfile;
+export default UserProfile;

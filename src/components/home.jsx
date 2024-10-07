@@ -1,7 +1,15 @@
-
+import Hero from "./hero";
+import FeaturedBlogs from "./featured_blogs";
+import BlogSearchSection from "./search";
 
 const Home = () => {
     return (
-        <h1>Home Page</h1>
+       <>
+        <Hero />
+        <FeaturedBlogs />
+        <BlogSearchSection />
+       </> 
     );
 }
+
+export default Home;
