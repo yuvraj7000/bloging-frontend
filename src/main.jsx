@@ -7,6 +7,8 @@ import Home from './components/home';
 import Login from './components/login';
 import Register from './components/register';
 import UserProfile from './components/user';
+import BlogPage from './components/blog';
+import CreateBlog from './components/createBlog';
 
 
 const router = createBrowserRouter(
@@ -16,7 +18,9 @@ const router = createBrowserRouter(
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
       <Route path='user/:name' element={<UserProfile />} />
+      <Route path='blog/:id' element={<BlogPage />} />
       <Route path='myProfile' element={<UserProfile />} />
+      <Route path='createBlog' element={<CreateBlog/>} />
     </Route>
   )
 );
