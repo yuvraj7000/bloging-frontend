@@ -9,7 +9,9 @@ import Register from './components/register';
 import UserProfile from './components/user';
 import BlogPage from './components/blog';
 import CreateBlog from './components/createBlog';
-
+import BlogSearchSection from './components/search';
+import Category from './components/category';
+import Profile from './components/userProfile';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +23,9 @@ const router = createBrowserRouter(
       <Route path='blog/:id' element={<BlogPage />} />
       <Route path='myProfile' element={<UserProfile />} />
       <Route path='createBlog' element={<CreateBlog/>} />
+      <Route path='search' element={<BlogSearchSection/>} />
+      <Route path='category/:name' element={<Category/>} />
+      <Route path='profile/:name' element={<Profile/>} />
     </Route>
   )
 );

@@ -1,4 +1,4 @@
-import { wave_animation, gradient_logo, plan_logo } from "./logo"
+import { wave_animation,} from "./logo"
 import Lottie from "lottie-react";
 
 const LandingPage = () => {

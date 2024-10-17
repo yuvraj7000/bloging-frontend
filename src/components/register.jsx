@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,40 +12,53 @@ const Register = () => {
     password: '',
     userImg: null,
     description: '',
-    socialLinks: [{ platform: '', url: '' }],
   });
+  const [loading, setLoading] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSocialLinkChange = (index, event) => {
-    const { name, value } = event.target;
-    const updatedSocialLinks = formData.socialLinks.map((link, i) =>
-      i === index ? { ...link, [name]: value } : link
-    );
-    setFormData({ ...formData, socialLinks: updatedSocialLinks });
-  };
-
-  const addSocialLink = () => {
-    setFormData({
-      ...formData,
-      socialLinks: [...formData.socialLinks, { platform: '', url: '' }],
-    });
-  };
-
   const handleFileChange = (e) => {
     setFormData({ ...formData, userImg: e.target.files[0] });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form data:', formData);
+    setLoading(true);
+    const formDataToSend = new FormData();
+    formDataToSend.append('fullname', formData.fullname);
+    formDataToSend.append('username', formData.username);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('password', formData.password);
+    formDataToSend.append('description', formData.description);
+    formDataToSend.append('user_img', formData.userImg);
+
+    try {
+      const response = await axios.post('http://localhost:3002/api/v1/user/register', formDataToSend, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      if (response.status === 200) {
+        toast.success('Registration successful!');
+        setRegistrationSuccess(true);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('Error registering user:', error);
+      toast.error(error.response?.data?.message || 'Error registering user');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md space-y-4">
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md space-y-4 m-10">
+      <ToastContainer />
       <h2 className="text-2xl font-bold text-gray-800">Register</h2>
 
       <input
@@ -51,6 +68,7 @@ const Register = () => {
         value={formData.fullname}
         onChange={handleChange}
         className="w-full p-2 border border-gray-300 rounded"
+        disabled={registrationSuccess}
       />
 
       <input
@@ -60,6 +78,7 @@ const Register = () => {
         value={formData.username}
         onChange={handleChange}
         className="w-full p-2 border border-gray-300 rounded"
+        disabled={registrationSuccess}
       />
 
       <input
@@ -69,6 +88,7 @@ const Register = () => {
         value={formData.email}
         onChange={handleChange}
         className="w-full p-2 border border-gray-300 rounded"
+        disabled={registrationSuccess}
       />
 
       <input
@@ -78,6 +98,7 @@ const Register = () => {
         value={formData.password}
         onChange={handleChange}
         className="w-full p-2 border border-gray-300 rounded"
+        disabled={registrationSuccess}
       />
 
       <input
@@ -85,6 +106,7 @@ const Register = () => {
         name="userImg"
         onChange={handleFileChange}
         className="w-full p-2 border border-gray-300 rounded"
+        disabled={registrationSuccess}
       />
 
       <textarea
@@ -93,44 +115,28 @@ const Register = () => {
         value={formData.description}
         onChange={handleChange}
         className="w-full p-2 border border-gray-300 rounded"
+        disabled={registrationSuccess}
       ></textarea>
 
-      <div className="space-y-2">
-        {formData.socialLinks.map((link, index) => (
-          <div key={index} className="flex space-x-2">
-            <input
-              type="text"
-              name="platform"
-              placeholder="Platform"
-              value={link.platform}
-              onChange={(e) => handleSocialLinkChange(index, e)}
-              className="w-1/2 p-2 border border-gray-300 rounded"
-            />
-            <input
-              type="url"
-              name="url"
-              placeholder="URL"
-              value={link.url}
-              onChange={(e) => handleSocialLinkChange(index, e)}
-              className="w-1/2 p-2 border border-gray-300 rounded"
-            />
-          </div>
-        ))}
+      {!registrationSuccess ? (
+        <button
+          type="submit"
+          className={`w-full p-2 text-white rounded-md ${loading ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'}`}
+          disabled={loading}
+        >
+          {loading ? 'Registering...' : 'Register'}
+        </button>
+      ) : (
+        <Link to='/login'>
         <button
           type="button"
-          onClick={addSocialLink}
-          className="text-blue-600 underline"
+          className="w-full p-2 text-white rounded-md bg-green-600 hover:bg-green-700"
+       
         >
-          Add another social link
+          Go to Login
         </button>
-      </div>
-
-      <button
-        type="submit"
-        className="w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-      >
-        Register
-      </button>
+        </Link>
+      )}
     </form>
   );
 };
