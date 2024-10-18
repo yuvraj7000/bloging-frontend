@@ -305,6 +305,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import server from './env';
 
 const UserProfile = ({ isLoggedIn = true }) => {
   const [userData, setUserData] = useState(null);
@@ -315,7 +316,7 @@ const UserProfile = ({ isLoggedIn = true }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3002/api/v1/user/myProfile', { withCredentials: true });
+        const response = await axios.get(`${server}/api/v1/user/myProfile`, { withCredentials: true });
         if (response.status === 200) {
           setUserData(response.data.user);
         }
@@ -343,7 +344,7 @@ const UserProfile = ({ isLoggedIn = true }) => {
   const handleLinkSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3002/api/v1/user/addSocial', {
+      const response = await axios.post(`${server}/api/v1/user/addSocial`, {
         social_name: newLink.platform,
         social_link: newLink.url
       }, { withCredentials: true });
@@ -377,7 +378,7 @@ const UserProfile = ({ isLoggedIn = true }) => {
 
   const logout = async () => {
     try {
-      const response = await axios.get('http://localhost:3002/api/v1/user/logout', { withCredentials: true });
+      const response = await axios.get(`${server}/api/v1/user/logout`, { withCredentials: true });
       if (response.status === 200) {
         window.location.href = '/';
       }
@@ -389,7 +390,7 @@ const UserProfile = ({ isLoggedIn = true }) => {
 const handleRemoveBlog = async(blogId) => {
   console.log("remove blog -> ", blogId);
   try {
-    const response = await axios.post(`http://localhost:3002/api/v1/blog/unstar_blog`,{ "blog_id" : blogId}, { withCredentials: true });
+    const response = await axios.post(`${server}/api/v1/blog/unstar_blog`,{ "blog_id" : blogId}, { withCredentials: true });
     if (response.status === 200) {
       setUserData(prevData => ({
         ...prevData,
@@ -406,7 +407,7 @@ const handleRemoveBlog = async(blogId) => {
 const handleDeleteBlog = async(blogId) => {
   console.log("Delete blog", blogId);
   try {
-    const response = await axios.post(`http://localhost:3002/api/v1/blog/delete_blog`,{ "blog_id" : blogId}, { withCredentials: true });
+    const response = await axios.post(`${server}/api/v1/blog/delete_blog`,{ "blog_id" : blogId}, { withCredentials: true });
     if (response.status === 200) {
       setUserData(prevData => ({
         ...prevData,

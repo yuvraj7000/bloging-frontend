@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from 'react-router-dom';
+import server from './env';
 
 const categories = ["Latest", "mn", "education", "Technology", "Productivity", "Photography"];
 
@@ -24,13 +25,13 @@ const BlogSearchSection = () => {
 
         let response;
         if (searchTerm) {
-          response = await axios.post('http://localhost:3002/api/v1/blog/search', {
+          response = await axios.post(`${server}/api/v1/blog/search`, {
             search: searchTerm
           }, { withCredentials: true });
         } else if (selectedCategory === 'Latest') {
-          response = await axios.get('http://localhost:3002/api/v1/blog/latest_blogs', { withCredentials: true });
+          response = await axios.get(`${server}/api/v1/blog/latest_blogs`, { withCredentials: true });
         } else {
-          response = await axios.post('http://localhost:3002/api/v1/blog/category_blogs', {
+          response = await axios.post(`${server}/api/v1/blog/category_blogs`, {
             category: selectedCategory
           }, { withCredentials: true });
         }

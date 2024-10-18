@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal } from 'lucide-react';
+import server from './env';
 
 const Profile = ({ isLoggedIn = true }) => {
   const { name } = useParams();
@@ -16,7 +17,7 @@ const Profile = ({ isLoggedIn = true }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.post('http://localhost:3002/api/v1/user/userProfile', {
+        const response = await axios.post(`${server}/api/v1/user/userProfile`, {
           username: name
         }, { withCredentials: true });
         if (response.status === 200) {
@@ -32,7 +33,7 @@ const Profile = ({ isLoggedIn = true }) => {
 
   const handleStarBlog = async (blogId) => {
     try {
-      const response = await axios.post(`http://localhost:3002/api/v1/blog/star_blog`, { "blog_id": blogId }, { withCredentials: true });
+      const response = await axios.post(`${server}/api/v1/blog/star_blog`, { "blog_id": blogId }, { withCredentials: true });
       if (response.status === 200) {
         console.log("Blog starred successfully");
       }

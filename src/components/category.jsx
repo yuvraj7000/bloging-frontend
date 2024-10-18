@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import server from './env';
 
 const Category = () => {
   const { name } = useParams();
@@ -18,7 +19,7 @@ const Category = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await axios.post('http://localhost:3002/api/v1/blog/category_blogs', {
+        const response = await axios.post(`${server}/api/v1/blog/category_blogs`, {
           category: name
         }, { withCredentials: true });
 

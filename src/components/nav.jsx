@@ -11,6 +11,7 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Link, NavLink } from 'react-router-dom';
+import server from './env';
 
 const categories = [
     { category: 'mn', image: mn },
@@ -28,7 +29,7 @@ const Navbar = () => {
     useEffect(() => {
         const checkLoginStatus = async () => {
             try {
-                const response = await axios.get('http://localhost:3002/api/v1/user/myProfile', { withCredentials: true });
+                const response = await axios.get(`${server}/api/v1/user/myProfile`, { withCredentials: true });
                 if (response.status === 200) {
                     console.log(response.data);
                     setIsLoggedIn(true);

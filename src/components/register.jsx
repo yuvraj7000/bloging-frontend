@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
+import server from './env';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const Register = () => {
     formDataToSend.append('user_img', formData.userImg);
 
     try {
-      const response = await axios.post('http://localhost:3002/api/v1/user/register', formDataToSend, {
+      const response = await axios.post(`${server}/api/v1/user/register`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
