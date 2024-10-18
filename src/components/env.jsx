@@ -1,3 +1,3 @@
-const server = "https://bloging-website-backend-teal.vercel.app/";
+const server = "https://oyster-app-jndzv.ondigitalocean.app";
 
 export default server;
