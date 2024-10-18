@@ -1,3 +1,3 @@
-const server = "http://localhost:3002";
+const server = "https://bloging-website-backend-teal.vercel.app/";
 
 export default server;
