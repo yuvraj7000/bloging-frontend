@@ -29,7 +29,7 @@ const BlogSearchSection = () => {
             search: searchTerm
           }, { withCredentials: true });
         } else if (selectedCategory === 'Latest') {
-          response = await axios.get(`${server}/api/v1/blog/latest_blogs`, { withCredentials: true });
+          response = await axios.get(`https://oyster-app-jndzv.ondigitalocean.app/api/v1/blog/latest_blogs`, { withCredentials: true });
         } else {
           response = await axios.post(`${server}/api/v1/blog/category_blogs`, {
             category: selectedCategory
