@@ -134,41 +134,44 @@ const BlogSearchSection = () => {
         </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {users.map(user => (
-                <Card key={user._id} className="bg-gray-800 shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <Link to={`/profile/${user.username}`}>
-                  <CardHeader className="flex items-center just">
-                    <img src={user.user_img} alt={user.username} className="w-12 h-12 object-cover rounded-full" />
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">{user.username}</h3>
-                      {/* <p className="text-gray-400">{user.fullname}</p> */}
-                    </div>
-                  </CardHeader>
-                  </Link>
-                </Card>
-              ))}
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {users && users.length > 0 ? (
+                users.map(user => (
+                  <Card key={user._id} className="bg-gray-800 shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <Link to={`/profile/${user.username}`}>
+                      <CardHeader className="flex items-center just">
+                        <img src={user.user_img} alt={user.username} className="w-12 h-12 object-cover rounded-full" />
+                        <div>
+                          <h3 className="text-lg font-semibold text-white">{user.username}</h3>
+                          {/* <p className="text-gray-400">{user.fullname}</p> */}
+                        </div>
+                      </CardHeader>
+                    </Link>
+                  </Card>
+                ))
+              ) : (
+                <p className="text-gray-600">No users found.</p>
+              )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-              {searchResults.map(blog => (
-            <Card key={blog._id} className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
-            <CardHeader className="p-0">
-              <img src={blog.blog_img} alt={blog.title} className="w-full h-48 object-cover" />
-            </CardHeader>
-            <CardContent className="p-4 flex flex-col items-center">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-2">{blog.title}</h3>
-              <p className="text-gray-600 mb-2">writter : <span className="font-medium text-gray-800">{blog.created_by.username}</span></p>
-              <Badge className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">{blog.category}</Badge>
-            </CardContent>
-            <CardFooter className="p-4 flex justify-center">
-              <Link to={`/blog/${blog._id}`}>
-                <Button variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-full">
-                  Read More
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-              ))}
+              {searchResults && searchResults.length > 0 ? (
+                searchResults.map(blog => (
+                  <Card key={blog._id} className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
+                    <CardHeader className="p-0">
+                      <img src={blog.blog_img} alt={blog.title} className="w-full h-48 object-cover" />
+                    </CardHeader>
+                    <CardContent className="p-4 flex flex-col items-center">
+                      <h3 className="text-2xl font-semibold text-gray-800 mb-2">{blog.title}</h3>
+                      <p className="text-gray-600 mb-2">writter : <span className="font-medium text-gray-800">{blog.created_by.username}</span></p>
+                      <Badge className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">{blog.category}</Badge>
+                    </CardContent>
+                    <CardFooter className="p-4 flex justify-center">
+                    </CardFooter>
+                  </Card>
+                ))
+              ) : (
+                <p className="text-gray-600">No blogs found.</p>
+              )}
             </div>
           </>
         )}
