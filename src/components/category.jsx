@@ -19,10 +19,10 @@ const Category = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await axios.post(`/api/v1/blog/category_blogs`, {
+        const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/blog/category_blogs`, {
           category: name
         }, { withCredentials: true });
-
+        console.log("URL -> ",import.meta.env.VITE_URL);
         if (response.status === 200) {
           setBlogs(response.data.blogs);
         }

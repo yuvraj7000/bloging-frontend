@@ -29,7 +29,7 @@ const Navbar = () => {
     useEffect(() => {
         const checkLoginStatus = async () => {
             try {
-                const response = await axios.get(`/api/v1/user/myProfile`, { withCredentials: true });
+                const response = await axios.get(`${import.meta.env.VITE_URL}/api/v1/user/myProfile`, { withCredentials: true });
                 if (response.status === 200) {
                     console.log(response.data);
                     setIsLoggedIn(true);

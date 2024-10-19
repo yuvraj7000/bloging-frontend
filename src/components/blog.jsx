@@ -17,7 +17,7 @@ const BlogPage = () => {
   useEffect(() => {
     const get_blog = async () => {
       try {
-        const response = await axios.post(`/api/v1/blog/get_blog`, {
+        const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/blog/get_blog`, {
           blogId: id
         }, { withCredentials: true });
 
@@ -39,7 +39,7 @@ const BlogPage = () => {
 
   const handleLike = async() => {
     try {
-      const response = await axios.post(`/api/v1/like/add`, {
+      const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/like/add`, {
         blog_id: id,
       }, { withCredentials: true });
 
@@ -57,7 +57,7 @@ const BlogPage = () => {
   const handleAddComment = async () => {
     if (newComment.trim() !== '') {
       try {
-        const response = await axios.post(`/api/v1/comment/add_comment`, {
+        const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/comment/add_comment`, {
           blog_id: id,
           comment_text: newComment
         }, { withCredentials: true });
@@ -85,7 +85,7 @@ const BlogPage = () => {
    console.log("commentId -> ",commentId);
    console.log("Id -> ",id);
    try {
-    const response = await axios.post(`/api/v1/comment/add_reply`, {
+    const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/comment/add_reply`, {
       comment_id : commentId,
       comment_text : replyText
   }, { withCredentials: true });
@@ -102,7 +102,7 @@ const BlogPage = () => {
 
   const handleStarBlog = async () => {
     try {
-      const response = await axios.post(`/api/v1/blog/star_blog`, {
+      const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/blog/star_blog`, {
         blog_id: id,
       }, { withCredentials: true });
 

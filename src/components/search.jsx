@@ -18,6 +18,7 @@ const BlogSearchSection = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    console.log("URL -> ",import.meta.env.VITE_URL);
     const fetchBlogs = async () => {
       try {
         setLoading(true);
@@ -25,18 +26,17 @@ const BlogSearchSection = () => {
 
         let response;
         if (searchTerm) {
-          response = await axios.post(`/api/v1/blog/search`, {
+          response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/blog/search`, {
             search: searchTerm
           }, { withCredentials: true });
         } else if (selectedCategory === 'Latest') {
-          response = await axios.get(`/api/v1/blog/latest_blogs`, { withCredentials: true });
+          response = await axios.get(`${import.meta.env.VITE_URL}/api/v1/blog/latest_blogs`, { withCredentials: true });
         } else {
-          response = await axios.post(`/api/v1/blog/category_blogs`, {
+          response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/blog/category_blogs`, {
             category: selectedCategory
           }, { withCredentials: true });
         }
-        const b = '/api/v1/blog/search';
-        console.log("b -> ",b);
+     
         console.log("response -> ",response);
 
         if (response.status === 200) {

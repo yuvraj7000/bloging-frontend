@@ -38,7 +38,7 @@ const Register = () => {
     formDataToSend.append('user_img', formData.userImg);
 
     try {
-      const response = await axios.post(`/api/v1/user/register`, formDataToSend, {
+      const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/user/register`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
