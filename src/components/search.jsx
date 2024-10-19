@@ -135,7 +135,7 @@ const BlogSearchSection = () => {
         ) : (
           <>
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {users && users.length > 0 ? (
+              {users ? (
                 users.map(user => (
                   <Card key={user._id} className="bg-gray-800 shadow-md hover:shadow-lg transition-shadow duration-300">
                     <Link to={`/profile/${user.username}`}>
@@ -154,7 +154,7 @@ const BlogSearchSection = () => {
               )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-              {searchResults && searchResults.length > 0 ? (
+              {searchResults > 0 ? (
                 searchResults.map(blog => (
                   <Card key={blog._id} className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
                     <CardHeader className="p-0">
@@ -176,9 +176,9 @@ const BlogSearchSection = () => {
           </>
         )}
 
-        {searchResults.length === 0 && users.length === 0 && !loading && !error && (
+        {/* {searchResults.length === 0 && users.length === 0 && !loading && !error && (
           <p className="text-center text-gray-600 mt-6">No results found. Try a different search term or category.</p>
-        )}
+        )} */}
       </div>
     </section>
   );
