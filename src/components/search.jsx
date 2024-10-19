@@ -176,9 +176,9 @@ const BlogSearchSection = () => {
           </>
         )}
 
-        {/* {searchResults.length === 0 && users.length === 0 && !loading && !error && (
+        {searchResults.length === 0 && users.length === 0 && !loading && !error && (
           <p className="text-center text-gray-600 mt-6">No results found. Try a different search term or category.</p>
-        )} */}
+        )}
       </div>
     </section>
   );
