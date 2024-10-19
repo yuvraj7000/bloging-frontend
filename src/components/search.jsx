@@ -157,7 +157,7 @@ const BlogSearchSection = () => {
               )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-              {searchResults > 0 ? (
+              {searchResults ? (
                 searchResults.map(blog => (
                   <Card key={blog._id} className="flex flex-col bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 duration-300">
                     <CardHeader className="p-0">
@@ -179,9 +179,9 @@ const BlogSearchSection = () => {
           </>
         )}
 
-        {/* {searchResults.length === 0 && users.length === 0 && !loading && !error && (
+        {searchResults.length === 0 && users.length === 0 && !loading && !error && (
           <p className="text-center text-gray-600 mt-6">No results found. Try a different search term or category.</p>
-        )} */}
+        )}
       </div>
     </section>
   );
