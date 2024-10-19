@@ -12,11 +12,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
-        target: 'https://oyster-app-jndzv.ondigitalocean.app',
-        changeOrigin: true,
-        secure: false,
-      },
+      '/api': 'https://oyster-app-jndzv.ondigitalocean.app',
     },
   },
 })

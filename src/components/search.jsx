@@ -35,6 +35,9 @@ const BlogSearchSection = () => {
             category: selectedCategory
           }, { withCredentials: true });
         }
+        const b = '/api/v1/blog/search';
+        console.log("b -> ",b);
+        console.log("response -> ",response);
 
         if (response.status === 200) {
           setSearchResults(response.data.blogs);
