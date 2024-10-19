@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import server from './env';
+
 
 const CreateBlog = () => {
   const [title, setTitle] = useState('');
@@ -30,7 +30,7 @@ const CreateBlog = () => {
     formData.append('category', category);
 
     try {
-      const response = await axios.post(`${server}/api/v1/blog/create_blog`, formData, {
+      const response = await axios.post(`/api/v1/blog/create_blog`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
