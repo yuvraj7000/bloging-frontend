@@ -11,6 +11,8 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Link, NavLink } from 'react-router-dom';
+import { wave_animation, } from "./logo"
+import Lottie from "lottie-react";
 
 
 const categories = [
@@ -57,8 +59,11 @@ const Navbar = () => {
                 <div className="container mx-auto">
                     <div className="flex justify-between items-center">
                         {/* Logo */}
-                        <div className="text-white text-xl font-bold">
-                            <NavLink to='/'>Blog<span className='text-blue-500'>Waves</span></NavLink>
+                        <div className="text-white text-xl font-bold flex justify-center items-center">
+                            <NavLink to='/'>Blog<span className='text-blue-500'>Wave</span></NavLink>
+                            <div className="h-10 overflow-hidden flex justify-center items-center">
+                                <Lottie className='h-16' animationData={wave_animation}/>
+                            </div>
                         </div>
 
                         {/* Hamburger Icon (Visible on Small Screens) */}
