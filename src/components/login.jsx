@@ -57,7 +57,7 @@ const Login = () => {
           placeholder="Username or Email"
           value={formData.identifier}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border border-gray-300 rounded bg-white"
           required
         />
 
@@ -67,7 +67,7 @@ const Login = () => {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border border-gray-300 rounded bg-white"
           required
         />
 

@@ -208,7 +208,7 @@ const BlogPage = () => {
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="Add a comment..."
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="w-full p-2 border border-gray-300 rounded-md bg-gray-50"
           />
           <button
             onClick={handleAddComment}
@@ -264,7 +264,7 @@ const Comment = ({ comment, onReply }) => {
             value={replyText}
             onChange={(e) => setReplyText(e.target.value)}
             placeholder="Reply..."
-            className="w-full p-2 text-sm border border-gray-300 rounded-md"
+            className="w-full p-2 text-sm border border-gray-300 rounded-md bg-gray-50"
           />
           <button
             onClick={handleReplySubmit}

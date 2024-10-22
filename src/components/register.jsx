@@ -35,12 +35,30 @@ const Register = () => {
     formDataToSend.append('email', formData.email);
     formDataToSend.append('password', formData.password);
     formDataToSend.append('description', formData.description);
-    formDataToSend.append('user_img', formData.userImg);
+    
+    const cloudinaryData = new FormData();
+    cloudinaryData.append('file', formData.userImg);
+    cloudinaryData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+
+    try {
+      const res = await axios.post(import.meta.env.VITE_CLOUDINARY_URL, cloudinaryData, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+
+
+    formDataToSend.append('user_img', res?.data?.secure_url || "");
+    } catch (error) {
+      console.error('Error uploading image to cloudinary:', error);
+      toast.error('Error uploading image to cloudinary');
+    }
 
     try {
       const response = await axios.post(`${import.meta.env.VITE_URL}/api/v1/user/register`, formDataToSend, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
       });
       if (response.status === 200) {
@@ -55,7 +73,8 @@ const Register = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }
+
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md space-y-4 m-10">
@@ -68,7 +87,7 @@ const Register = () => {
         placeholder="Full Name"
         value={formData.fullname}
         onChange={handleChange}
-        className="w-full p-2 border border-gray-300 rounded"
+        className="w-full p-2 border border-gray-300 rounded bg-white"
         disabled={registrationSuccess}
       />
 
@@ -78,7 +97,7 @@ const Register = () => {
         placeholder="Username"
         value={formData.username}
         onChange={handleChange}
-        className="w-full p-2 border border-gray-300 rounded"
+        className="w-full p-2 border border-gray-300 rounded bg-white"
         disabled={registrationSuccess}
       />
 
@@ -88,7 +107,7 @@ const Register = () => {
         placeholder="Email"
         value={formData.email}
         onChange={handleChange}
-        className="w-full p-2 border border-gray-300 rounded"
+        className="w-full p-2 border border-gray-300 rounded bg-white"
         disabled={registrationSuccess}
       />
 
@@ -98,7 +117,7 @@ const Register = () => {
         placeholder="Password"
         value={formData.password}
         onChange={handleChange}
-        className="w-full p-2 border border-gray-300 rounded"
+        className="w-full p-2 border border-gray-300 rounded bg-white"
         disabled={registrationSuccess}
       />
 
@@ -106,7 +125,7 @@ const Register = () => {
         type="file"
         name="userImg"
         onChange={handleFileChange}
-        className="w-full p-2 border border-gray-300 rounded"
+        className="w-full p-2 border border-gray-300 rounded bg-white"
         disabled={registrationSuccess}
       />
 
@@ -115,7 +134,7 @@ const Register = () => {
         placeholder="Description"
         value={formData.description}
         onChange={handleChange}
-        className="w-full p-2 border border-gray-300 rounded"
+        className="w-full p-2 border border-gray-300 rounded bg-white"
         disabled={registrationSuccess}
       ></textarea>
 
