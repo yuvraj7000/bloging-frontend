@@ -33,7 +33,9 @@ const CreateBlog = () => {
     cloudinaryData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
 
     try {
-      const res = await axios.post(import.meta.env.VITE_CLOUDINARY_URL, cloudinaryData, {
+      const cloudinaryUrl = import.meta.env.VITE_CLOUDINARY_URL;
+      console.log('Cloudinary URL:', cloudinaryUrl);
+      const res = await axios.post(cloudinaryUrl, cloudinaryData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
