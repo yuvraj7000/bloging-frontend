@@ -16,12 +16,12 @@ import Lottie from "lottie-react";
 
 
 const categories = [
-    { category: 'mn', image: mn },
-    { category: 'education', image: mn },
-    { category: 'Health', image: mn },
-    { category: 'Science', image: mn },
-    { category: 'Sports', image: mn },
-    { category: 'Entertainment', image: mn },
+    { category: 'Travel', image: "https://t4.ftcdn.net/jpg/00/65/48/25/360_F_65482539_C0ZozE5gUjCafz7Xq98WB4dW6LAhqKfs.jpg" },
+    { category: 'Education', image: "https://www.avanse.com/blogs/images/10feb-blog-2023.jpg" },
+    { category: 'Productivity', image: "https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/48/posts/25894/image-upload/productivity.png" },
+    { category: 'Technology', image: "https://miro.medium.com/v2/resize:fit:1024/1*Iv5ntHstgQowxRl6PsNa9g.jpeg" },
+    { category: 'Sports', image: "https://www.electricireland.com/images/folder/homepage-spotlights/benefits-0.jpg?sfvrsn=bc86ba0d_2" },
+    { category: 'Lifestyle', image: "https://superblog.supercdn.cloud/site_cuid_cl92i00jg261301kozfglx818f/images/image-1668150945981-compressed.png" },
 ];
 
 const Navbar = () => {

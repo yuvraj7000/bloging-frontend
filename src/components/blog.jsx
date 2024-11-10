@@ -51,6 +51,7 @@ const BlogPage = () => {
       }
     } catch (error) {
       console.error('Error adding comment:', error);
+      toast.error('login required');
     }
   };
 
@@ -69,6 +70,7 @@ const BlogPage = () => {
         }
       } catch (error) {
         console.error('Error adding comment:', error);
+        toast.error('login required');
       }
     }
   };
@@ -95,6 +97,7 @@ const BlogPage = () => {
     }
   } catch (error) {
     console.error('Error adding comment:', error);
+    toast.error('login required');
   }
 
     setComments(updatedComments);
@@ -113,7 +116,7 @@ const BlogPage = () => {
       }
     } catch (error) {
       console.error('Error starring blog:', error);
-      toast.error('Error starring blog');
+      toast.error('login required');
     }
   };
 

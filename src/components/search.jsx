@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from 'react-router-dom';
 
 
-const categories = ["Latest", "mn", "education", "Technology", "Productivity", "Photography"];
+const categories = ["Latest", "Travel", "Education", "Technology", "Productivity", "Lifestyle"];
 
 const BlogSearchSection = () => {
   const [searchTerm, setSearchTerm] = useState('');
