@@ -164,7 +164,7 @@ const BlogSearchSection = () => {
                     <img src={blog.blog_img} alt={blog.title} className="w-full h-48 object-cover" />
                   </CardHeader>
                   <CardContent className="p-4 flex flex-col items-center">
-                    <h3 className="text-2xl font-semibold text-gray-800 mb-2">{blog.title}</h3>
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-2 text-center">{blog.title}</h3>
                     <p className="text-gray-600 mb-2">writter : <span className="font-medium text-gray-800">{blog.created_by.username}</span></p>
                     <Badge className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">{blog.category}</Badge>
                   </CardContent>

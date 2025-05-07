@@ -1,27 +1,30 @@
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import mn from './img/mn.png';
+// import mn from './img/mn.png';
+import kb from './img/kisanBandhu.png';
+import ht from './img/hackathon.png';
+import bw from './img/blogwave.png';
 import { Link } from 'react-router-dom';
 
 const blogPosts = [
   {
-    id: "66fbe9cceacd023a029f1484",
-    title: "10 Tips for Productive Remote Work",
-    excerpt: "Learn how to stay focused and efficient while working from home.",
-    imageUrl: mn,
+    id: "6818d4557f3b1c5a03935dcd",
+    title: "🗃️ Behind BlogWave: My Database Design Journey",
+    excerpt: "I hope this gives you insight into the engine that powers this platform.",
+    imageUrl: bw,
   },
   {
-    id: "66fbe9cceacd023a029f1484",
-    title: "The Future of Artificial Intelligence",
-    excerpt: "Exploring the potential impacts of AI on various industries.",
-    imageUrl: mn,
+    id: "681ad0827f3b1c5a03935ebe",
+    title: "Kisan Bandhu – My App, A Farmer’s True Friend 🌾📱",
+    excerpt: "A comprehensive guide to the features and benefits of the Kisan Bandhu app.",
+    imageUrl: kb,
   },
   {
-    id: "66fbe9cceacd023a029f1484",
-    title: "Healthy Eating Habits for Busy Professionals",
-    excerpt: "Quick and nutritious meal ideas for your workweek.",
-    imageUrl: mn,
+    id: "6744026aa59bfe438724f0f5",
+    title: "Hackathon Experience! 💻🚀 [HACKINDORE]",
+    excerpt: "Participating with my amazing team, Code Crusaders.",
+    imageUrl: ht,
   },
 ];
 

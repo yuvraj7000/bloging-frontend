@@ -43,7 +43,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-4">Contact Our Developer</h3>
             <ul className="space-y-2">
               <li>
-                <a href="https://www.linkedin.com/in/yuvraj7000raju" className="text-gray-300 hover:text-white transition flex items-center">
+                <a href="https://www.linkedin.com/in/yuvraj7000" className="text-gray-300 hover:text-white transition flex items-center">
                   <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-1.122-2.5-2.5-2.5s-2.5 1.122-2.5 2.5v5.5h-3v-10h3v1.268c.878-.81 2.122-1.268 3.5-1.268 2.481 0 4.5 2.019 4.5 4.5v5.5z"/>
                   </svg>
@@ -59,7 +59,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://github.com/yuvrajyadav" className="text-gray-300 hover:text-white transition flex items-center">
+                <a href="https://github.com/yuvraj7000" className="text-gray-300 hover:text-white transition flex items-center">
                   <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.931 0-1.31.467-2.381 1.235-3.221-.123-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.874.118 3.176.77.84 1.233 1.911 1.233 3.221 0 4.61-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576 4.765-1.588 8.199-6.084 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                   </svg>
@@ -81,7 +81,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-700 text-center text-gray-400 pt-5">
-          <p>&copy; 2024 <span className='text-blue-200'>BlogWave</span>. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} <span className='text-blue-200'>BlogWave</span>. All rights reserved.</p>
         </div>
       </div>
     </footer>

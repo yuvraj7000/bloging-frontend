@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     identifier: '', // This will hold either the username or email
     password: '',
@@ -28,10 +30,7 @@ const Login = () => {
         toast.success('Login successful!');
         setErrorMessage('');
         setIsLoggedIn(true);
-        console.log("response -> ", response.data);
-        console.log("response.data -> ", response.data); // Store user information in context
-        console.log('Response cookies:', document.cookie);
-        // window.location.href = '/myProfile'; // Redirect to profile page
+        navigate('/myProfile')
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {

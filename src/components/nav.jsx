@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import mn from './img/mn.png';
 import axios from 'axios';
 import {
     NavigationMenu,
@@ -21,7 +20,7 @@ const categories = [
     { category: 'Productivity', image: "https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/48/posts/25894/image-upload/productivity.png" },
     { category: 'Technology', image: "https://miro.medium.com/v2/resize:fit:1024/1*Iv5ntHstgQowxRl6PsNa9g.jpeg" },
     { category: 'Sports', image: "https://www.electricireland.com/images/folder/homepage-spotlights/benefits-0.jpg?sfvrsn=bc86ba0d_2" },
-    { category: 'Lifestyle', image: "https://superblog.supercdn.cloud/site_cuid_cl92i00jg261301kozfglx818f/images/image-1668150945981-compressed.png" },
+    { category: 'Lifestyle', image: "https://www.hkvitals.com/blog/wp-content/uploads/2023/05/Benefits-of-having-a-healthy-lifestyle_900.jpg" },
 ];
 
 const Navbar = () => {
@@ -61,8 +60,8 @@ const Navbar = () => {
                         {/* Logo */}
                         <div className="text-white text-xl font-bold flex justify-center items-center">
                             <NavLink to='/'>Blog<span className='text-blue-500'>Wave</span></NavLink>
-                            <div className="h-10 overflow-hidden flex justify-center items-center">
-                                <Lottie className='h-16' animationData={wave_animation}/>
+                            <div className="h-8 overflow-hidden flex justify-center items-center">
+                                <Lottie className='h-14' animationData={wave_animation}/>
                             </div>
                         </div>
 
