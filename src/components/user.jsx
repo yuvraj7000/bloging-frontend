@@ -204,7 +204,7 @@ const confirmDeleteBlog = (blogId) => {
     </Link>
     </h3>
                 <p className="text-gray-600 mb-2">Published on {new Date(blog.createdAt).toLocaleDateString()}</p>
-                <p className="text-gray-700">{blog.blog_content.substring(0, 10)}...</p>
+                {/* <p className="text-gray-700">{blog.blog_content.substring(0, 10)}...</p> */}
                 <span className="mt-2 inline-block bg-gray-200 text-gray-800 rounded-full px-2 py-1 text-xs font-semibold">{blog.category}</span>
               </div>
             </div>
